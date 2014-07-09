@@ -36,7 +36,7 @@ function gg_test_field_default_fields() {
       'locked' => '0',
       'module' => 'text',
       'settings' => array(),
-      'translatable' => '1',
+      'translatable' => '0',
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
@@ -88,7 +88,7 @@ function gg_test_field_default_fields() {
   $fields['node-news-field_civicrm_party_ref'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '-1',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_civicrm_party_ref',
@@ -99,14 +99,29 @@ function gg_test_field_default_fields() {
       'settings' => array(
         'allowed_values' => array(
           'Individual' => array(
+            'Audiovisual_press' => 0,
             'Individual' => 0,
+            'Online_press' => 0,
+            'Press_agency' => 0,
+            'Staff' => 0,
+            'Written_press' => 0,
           ),
           'Household' => array(
             'Household' => 0,
           ),
           'Organization' => array(
+            'EGP_Network' => 0,
+            'EGP_structural_component' => 0,
+            'EGP_working_group' => 0,
+            'Federation' => 0,
+            'Foundations' => 0,
+            'GG_Structure_component' => 0,
+            'Media_Press' => 0,
+            'Non_governmental_organisation' => 0,
             'Organization' => 0,
             'Party' => 'Party',
+            'Party__local' => 0,
+            'Party__state_regional' => 0,
             'Party_component' => 'Party_component',
           ),
         ),
@@ -230,7 +245,7 @@ function gg_test_field_default_fields() {
   $fields['node-news-field_country'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '10',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_country',
@@ -557,6 +572,103 @@ function gg_test_field_default_fields() {
         ),
         'type' => 'media_generic',
         'weight' => '4',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-news-field_parties'.
+  $fields['node-news-field_parties'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_parties',
+      'foreign keys' => array(
+        'nid' => array(
+          'columns' => array(
+            'nid' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
+      'indexes' => array(
+        'nid' => array(
+          0 => 'nid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'node_reference',
+      'settings' => array(
+        'referenceable_types' => array(
+          'amendments' => 0,
+          'blog' => 0,
+          'book' => 0,
+          'congress_documents' => 0,
+          'event' => 0,
+          'forum' => 0,
+          'gg_newsletter' => 0,
+          'group' => 0,
+          'group_wiki' => 0,
+          'news' => 0,
+          'openlayers_example_content' => 0,
+          'page' => 0,
+          'party' => 'party',
+          'personal_profile' => 0,
+          'poll' => 0,
+          'post' => 0,
+          'proposal' => 0,
+          'slideshow' => 0,
+          'story' => 0,
+          'video' => 0,
+          'webform' => 0,
+        ),
+        'view' => array(
+          'args' => array(),
+          'display_name' => '',
+          'view_name' => '',
+        ),
+      ),
+      'translatable' => '0',
+      'type' => 'node_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'news',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'node_reference',
+          'settings' => array(),
+          'type' => 'node_reference_default',
+          'weight' => 16,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_parties',
+      'label' => 'Parties (node reference)',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'node_reference',
+        'settings' => array(
+          'autocomplete_match' => 'contains',
+          'autocomplete_path' => 'node_reference/autocomplete',
+          'size' => '60',
+        ),
+        'type' => 'node_reference_autocomplete',
+        'weight' => '31',
       ),
     ),
   );
@@ -972,6 +1084,7 @@ function gg_test_field_default_fields() {
   t('Menu');
   t('News & Press');
   t('News type');
+  t('Parties (node reference)');
   t('Related Party');
   t('Related People');
   t('Tags');
