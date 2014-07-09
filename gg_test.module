@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the gg_test feature.
+ */
+
+include_once 'gg_test.features.inc';
